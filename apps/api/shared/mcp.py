@@ -172,7 +172,7 @@ class StdioMCPClient:
             return f"Stdio Connection Error: {e}"
 
 # --- Docs-LangChain MCP ---
-DOCS_MCP_URL = "https://docs.langchain.com/mcp"
+DOCS_MCP_URL = os.getenv("DOCS_MCP_URL", "https://docs.langchain.com/mcp")
 docs_client = HTTPMCPClient(DOCS_MCP_URL, timeout=30.0)
 
 @tool
@@ -189,7 +189,7 @@ async def query_langchain_docs(query: str):
 
 
 # --- Biosciences FastMCP ---
-BIOSCIENCES_MCP_URL = "https://biosciences-mcp.fastmcp.app/mcp"
+BIOSCIENCES_MCP_URL = os.getenv("BIOSCIENCES_MCP_URL", "https://biosciences-mcp.fastmcp.app/mcp")
 # ChEMBL requires longer timeout (120s) as noted in documentation
 # BIOSCIENCES_API_KEY loaded from .env via langgraph.json "env" setting
 biosciences_client = HTTPMCPClient(
@@ -581,7 +581,7 @@ async def query_api_direct(
 # --- Graphiti Persistence ---
 
 # Graphiti MCP client (connects to local Graphiti server)
-GRAPHITI_MCP_URL = "http://localhost:8000/mcp"
+GRAPHITI_MCP_URL = os.getenv("GRAPHITI_MCP_URL", "http://localhost:8000/mcp")
 graphiti_client = HTTPMCPClient(GRAPHITI_MCP_URL, timeout=30.0)
 
 
