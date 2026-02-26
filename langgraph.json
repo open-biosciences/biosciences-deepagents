@@ -1,0 +1,10 @@
+{
+    "python_version": "3.11",
+    "dependencies": [
+        "."
+    ],
+    "graphs": {
+        "biosciences": "./apps/api/biosciences.py:graph"
+    },
+    "env": ".env"
+}
