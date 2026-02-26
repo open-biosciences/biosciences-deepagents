@@ -222,3 +222,6 @@ baseline-screenshots/
 
 # Claude Code large tool result cache (session artifacts, not source)
 .deepagents/large_tool_results/
+
+# LangGraph local dev server runtime artifacts
+.langgraph_api/
