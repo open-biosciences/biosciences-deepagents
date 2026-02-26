@@ -67,13 +67,15 @@ rate_limiter = RateLimiter()
 
 
 class HTTPMCPClient:
-    def __init__(self, base_url: str, timeout: float = 30.0):
+    def __init__(self, base_url: str, timeout: float = 30.0, api_key: str | None = None):
         self.base_url = base_url
         self.timeout = timeout
         self.headers = {
             "Content-Type": "application/json",
             "Accept": "application/json, text/event-stream"
         }
+        if api_key:
+            self.headers["Authorization"] = f"Bearer {api_key}"
 
     async def call_tool(self, tool_name: str, arguments: dict, apply_rate_limit: bool = True):
         # Apply rate limiting based on tool name
@@ -189,7 +191,12 @@ async def query_langchain_docs(query: str):
 # --- Biosciences FastMCP ---
 BIOSCIENCES_MCP_URL = "https://biosciences-mcp.fastmcp.app/mcp"
 # ChEMBL requires longer timeout (120s) as noted in documentation
-biosciences_client = HTTPMCPClient(BIOSCIENCES_MCP_URL, timeout=120.0)
+# BIOSCIENCES_API_KEY loaded from .env via langgraph.json "env" setting
+biosciences_client = HTTPMCPClient(
+    BIOSCIENCES_MCP_URL,
+    timeout=120.0,
+    api_key=os.environ.get("BIOSCIENCES_API_KEY"),
+)
 
 async def _query_biosciences(
     query: str,
