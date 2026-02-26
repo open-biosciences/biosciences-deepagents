@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "lifesciences-research": {
+    "biosciences-mcp": {
       "type": "http",
-      "url": "https://lifesciences-research.fastmcp.app/mcp"
+      "url": "https://biosciences-mcp.fastmcp.app/mcp"
     },
     "synapse": {
       "type": "http",
