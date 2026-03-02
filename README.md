@@ -4,11 +4,9 @@ LangGraph multi-agent system using a supervisor pattern with 7 specialist subage
 
 ## Migration Status
 
-**Wave 3 (Orchestration) — Not Started.**
+**Wave 3 (Orchestration) — Complete.** Migrated from the predecessor `lifesciences-deepagents` repository (2026-02-26). See [biosciences-program](https://github.com/open-biosciences/biosciences-program) for migration tracking.
 
-Content is pending migration from the predecessor `lifesciences-deepagents` repository. Wave 3 begins after Wave 2 (biosciences-mcp) is confirmed operational. See [biosciences-program](https://github.com/open-biosciences/biosciences-program) for migration tracking.
-
-## What This Repo Will Contain
+## What This Repo Contains
 
 ### LangGraph Supervisor + 7 Specialist Subagents
 
@@ -64,7 +62,7 @@ Result: `HGNC:171` → `ENSG00000115170` → Palovarotene → `NCT03312634` — 
 |-----------|------------|--------------|
 | Upstream | [biosciences-mcp](https://github.com/open-biosciences/biosciences-mcp) | Agents consume MCP tools via gateway (12 servers) |
 | Upstream | [biosciences-memory](https://github.com/open-biosciences/biosciences-memory) | PERSIST phase writes validated graph to Graphiti/Neo4j |
-| Reference | [biosciences-architecture](https://github.com/open-biosciences/biosciences-architecture) | Fuzzy-to-Fact protocol defined in ADR-001 |
+| Reference | [biosciences-program](https://github.com/open-biosciences/biosciences-program) | Fuzzy-to-Fact protocol defined in ADR-001 |
 
 ## Agent Ownership
 
